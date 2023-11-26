@@ -12,12 +12,15 @@ export default {
       fontFamily: {
         display: "'Playfair Display', serif",
         roboto: "'Roboto', sans-serif"
+      },
+      backgroundImage: {
+        nosotrosTel: "linear-gradient(to bottom, transparent 0%, transparent 50%, #037bc0 50%) ,url(/img/nosotros.jpg)",
+        nosotrosTable: "linear-gradient(to right, transparent 0%, transparent 50%, #037bc0 50%), url(/img/nosotros.jpg)",
+      },
+      backgroundColor: {
+        dark: 'rgb(0 0 0 / .95)'
       }
-    },
-    backgroundImage: {
-      nosotros: 'url(/img/nosotros.jpg)',
     }
   },
   plugins: [],
 }
-
