@@ -40,22 +40,8 @@ const Contacto = () => {
 
         setErrores(mostrarErrores(formData));
 
-        if (errores.length > 0) {
-            return;
-        }
-
-        if (!mostrarAlerta) {            
-            const formDataToSend = {
-                nombre: formData.nombre,
-                asunto: formData.asunto,
-                email: formData.email,
-                telefono: formData.telefono,
-                mensaje: formData.mensaje,
-                pais: formData.pais,
-                tipoUsuario: formData.tipoUsuario,
-                categoria: formData.categoria
-            };
-
+        if (!Object.values(formData).some(dato => dato === '')) {            
+            
             setAlertaCorrecto(true);
         
             // const requestOptions = {
@@ -80,15 +66,15 @@ const Contacto = () => {
                 categoria: ''
             });
 
-            // setTimeout(() => {
-            //     navigate('/');
-            // }, 2000);
+            setTimeout(() => {
+                navigate('/');
+            }, 2000);
         }
         
     }
 
     useEffect(() => {
-        if (errores.length) {
+        if (errores.length > 0) {
             setMostrarAlerta(true);
 
             setTimeout(() => {
@@ -237,11 +223,20 @@ const Contacto = () => {
                         <input
                             className="border w-full sm:col-start-2 sm:col-end-7 py-2 px-5 h-14 "
                             type="text"
+                            list="categorias"
                             id= "categoria"
                             name="categoria"
                             value={formData.categoria}
                             onChange={handleChange}
                         />
+
+                        <datalist id="categorias">
+                            <option value="Cocina" />
+                            <option value="Exterior" />
+                            <option value="Recamaras" />
+                            <option value="Oficina" />
+                            <option value="Television" />
+                        </datalist>
                     </div>
                 </fieldset>
 
